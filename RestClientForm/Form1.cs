@@ -22,7 +22,16 @@ namespace RestClientForm
 
         private void cmdReceive_Click(object sender, EventArgs e)
         {
-            debugOutput("This is some output that can use to test things.");
+            RestClient restClient = new RestClient();
+            restClient.endPoint = txtRestURI.Text;
+
+            debugOutput("Rest Client Created");
+
+            string strResponse = string.Empty;
+
+            strResponse = restClient.makeRequest();
+
+            debugOutput(strResponse);
         }
 
         #endregion
